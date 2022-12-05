@@ -7,7 +7,7 @@ const User = require("../models/userModel");
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
-
+  console.log(name, email, password);
   if (!name || !email || !password) {
     res.status(400);
     throw new Error("Please include all fields");
@@ -70,7 +70,6 @@ const loginUser = asyncHandler(async (req, res) => {
 // @access  Private
 
 const getMe = asyncHandler(async (req, res) => {
-  
   const user = {
     id: req.user._id,
     email: req.user.email,
